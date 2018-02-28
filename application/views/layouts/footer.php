@@ -7,27 +7,25 @@
   <!-- /.container -->
 </footer>
 <!-- Bootstrap core JavaScript -->
-<script src="<?php echo base_url('assets/js/jquery/jquery.min.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/bootstrap/bootstrap.bundle.min.js'); ?>"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $.ajax({
-            url:"<?=base_url('Api/login') ?>",
-            type:"post",
-            data:{
-              "username":"mengty",
-              "password":"1233"
-            },
-            success:function(data){
-                console.log("data : ");
-                console.log(data);
-            },
-            error:function(){
-                console.log("error");
-            }
-
-        });
-    });
+    // $(document).ready(function(){
+    //     $.ajax({
+    //         url:"<?//=base_url('Api/login') ?>",
+    //         type:"post",
+    //         data:{
+    //           "username":"mengty",
+    //           "password":"1233"
+    //         },
+    //         success:function(data){
+    //             console.log("data : ");
+    //             console.log(data);
+    //         },
+    //         error:function(){
+    //             console.log("error");
+    //         }
+    //
+    //     });
+    // });
 </script>
 </body>
 

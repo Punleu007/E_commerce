@@ -25,34 +25,24 @@ class Api extends MY_Controller {
   }
   public function createUser(){
       $this->load->model('User_model');
-      //$this->input->post('something');
-      $userEmail = $this->input->post("userEmail");
-      $userPassword = $this->input->post("userPassword");
-      $userFirstName = $this->input->post("userFirstName");
-      $userLastName = $this->input->post("userLastName");
-      $userCity = $this->input->post("userCity");
-      $userState = $this->input->post("userState");
-      $userZip = $this->input->post("userZip");
-      $userPhone = $this->input->post("userPhone");
-      $userCountry = $this->input->post("userCountry");
-      $userAddress = $this->input->post("userAddress");
+
       $user = $this->User_model->insert(array(
-        'UserEmail' => $userEmail,
-        'UserPassword' => $userPassword,
-        'UserFirstName' => $userFirstName,
-        'UserLastName' => $userLastName,
-        'UserCity' => $userCity,
-        'UserState' => $userState,
-        'UserZip' => $userZip,
-        'UserEmailVerified' => '',
-        'UserRegistrationDate' => '',
-        'UserVerificationCode' => '',
-        'UserIP' => '',
-        'UserPhone' => $userPhone,
-        'UserFax' => '',
-        'UserCountry' => $userCountry,
-        'UserAddress' => $userAddress,
-        'UserAddress2' => ''
+        'UserEmail' => $this->input->post("userEmail"),
+        'UserPassword' => $this->input->post("userPassword"),
+        'UserFirstName' => $this->input->post("userFirstName"),
+        'UserLastName' => $this->input->post("userLastName"),
+        'UserCity' => $this->input->post("userCity"),
+        'UserState' => $this->input->post("userState"),
+        'UserZip' => $this->input->post("userZip"),
+        'UserEmailVerified' => 'ff',
+        'UserRegistrationDate' => date("Y-m-d H:i:s"),
+        'UserVerificationCode' => '3434',
+        'UserIP' => '111',
+        'UserPhone' => $this->input->post("userPhone"),
+        'UserFax' => '012',
+        'UserCountry' => $this->input->post("userCountry"),
+        'UserAddress' => $this->input->post("userAddress"),
+        'UserAddress2' => '3dfgs'
       ));
       if(!empty($user)){
           $data["user"] = $user;

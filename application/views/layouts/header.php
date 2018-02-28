@@ -21,7 +21,7 @@
 
   </head>
 
-  <body>
+  <body class="bg-dark">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -50,3 +50,5 @@
         </div>
       </div>
     </nav>
+    <script src="<?php echo base_url('assets/js/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap/bootstrap.bundle.min.js'); ?>"></script>
