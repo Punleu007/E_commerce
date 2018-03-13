@@ -1,11 +1,12 @@
 <!-- Footer -->
 <footer class="py-5 bg-dark">
   <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; <a style="textdecoration:none;" href="<?=base_url();?>">Cambodian farmer</a> <?= date("Y"); ?></p>
+    <p class="m-0 text-center text-white">Copyright &copy; <a style="textdecoration:none;" href="<?php echo base_url();?>">Cambodian farmer</a> <?= date("Y"); ?></p>
 
   </div>
   <!-- /.container -->
 </footer>
+
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript">
     // $(document).ready(function(){
@@ -27,6 +28,7 @@
     //     });
     // });
 </script>
+
 </body>
 
 </html>

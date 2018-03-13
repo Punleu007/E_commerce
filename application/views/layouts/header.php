@@ -18,6 +18,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
     <link href="<?php echo base_url('assets/css/about.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/mystyle.css'); ?>" rel="stylesheet">
 
   </head>
 
@@ -46,9 +47,17 @@
             <li class="nav-item <?php if($menu=="contact")echo "active"; ?>">
               <a class="nav-link" href="#">Contact</a>
             </li>
+            <li class="nav-item <?php if($menu=="post")echo "active"; ?>">
+              <a class="nav-link" href="<?php echo base_url('Product/post'); ?>">Product</a>
+            </li>
+            <li class="nav-item <?php if($menu=="signup")echo "active"; ?>">
+              <a class="nav-link" href="<?php echo base_url('User/register'); ?>">Sign up</a>
+            </li>
+            <li class="nav-item <?php if($menu=="signin")echo "active"; ?>">
+              <a class="nav-link" href="<?php echo base_url('User'); ?>">Sign in</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-    <script src="<?php echo base_url('assets/js/jquery/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/bootstrap/bootstrap.bundle.min.js'); ?>"></script>
+    

@@ -7,9 +7,9 @@
 
       <h1 class="my-4">Category</h1>
       <div class="list-group">
-        <a href="<?=base_url();?>" class="list-group-item <?php if(!isset($category_menu)) echo "active"; ?>">All</a>
+        <a href="<?php echo base_url();?>" class="list-group-item <?php if(!isset($category_menu)) echo "active"; ?>">All</a>
         <?php foreach ($product_categorys as $key => $product_category) {?>
-              <a href="<?php echo base_url('Home/index/'.$product_category->CategoryID); ?>" class="list-group-item <?php if(isset($category_menu)) if( $category_menu==$product_category->CategoryID ) echo "active"; ?>"><?= $product_category->CategoryName  ?></a>
+              <a href="<?php echo base_url('Home/index/'.$product_category->CategoryID); ?>" class="list-group-item <?php if(isset($category_menu)) if( $category_menu==$product_category->CategoryID ) echo "active"; ?>"><?php echo $product_category->CategoryName  ?></a>
         <?php } ?>
       </div>
 
@@ -73,12 +73,12 @@
                  <a href="#"><img class="card-img-top" src="<?php echo base_url('assets/img/product/'.$pathPic.'/pic'.$index.'.png');?>" alt=""></a>
                  <div class="card-body">
                    <h4 class="card-title">
-                     <a><?= $product->ProductName;  ?></a>
+                     <a><?php echo $product->ProductName;  ?></a>
                    </h4>
-                   <h5><?= $product->ProductPrice."$"; ?></h5>
-                   <h6>In Stock : <?= $product->ProductLive; ?></h6>
-                   <h6>Code : <?= $product->ProductSKU;  ?></h6>
-                   <p class="card-text"><?= $product->ProductShortDesc;  ?></p>
+                   <h5><?php echo $product->ProductPrice."$"; ?></h5>
+                   <h6>In Stock : <?php echo $product->ProductLive; ?></h6>
+                   <h6>Code : <?php echo $product->ProductSKU;  ?></h6>
+                   <p class="card-text"><?php echo $product->ProductShortDesc;  ?></p>
                  </div>
                  <div class="card-footer">
                    <small class="text-muted">

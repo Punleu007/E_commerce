@@ -8,12 +8,22 @@ class User extends MY_Controller {
 			$this->load->model('Product_model');
 			$this->load->model('Product_category_model');
 			$title['page_title']= "Cambodian farmer";
-			$title['menu'] = "home";
+			$title['menu'] = "signin";
 			//$data['products']=$this->Product_model->where('ProductCategoryID',$category)->get_all();
 			$data["product_categorys"] = $this->Product_category_model->get_all();
 			//$data['category_menu'] = $category;
 			$this->view("logins/login",$data,$title);
   }
+	public function register(){
+			$this->load->model('Product_model');
+			$this->load->model('Product_category_model');
+			$title['page_title']= "Cambodian farmer";
+			$title['menu'] = "signup";
+			//$data['products']=$this->Product_model->where('ProductCategoryID',$category)->get_all();
+			$data["product_categorys"] = $this->Product_category_model->get_all();
+			//$data['category_menu'] = $category;
+			$this->view("logins/registration",$data,$title);
+	}
   public function insert(){
       $this->load->model('User_model');
       //$this->input->post('something');
@@ -33,8 +43,7 @@ class User extends MY_Controller {
         'UserFax' => '',
         'UserCountry' => '',
         'UserAddress' => '',
-        'UserAddress2' => '',
-        'UserID' => ''
+        'UserAddress2' => ''
       ));
   }
   public function login(){

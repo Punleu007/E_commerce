@@ -69,14 +69,14 @@ $("#formLogin").submit(function(event) {
     form.addClass('was-validated');
 
     $.ajax({
-        url:"<?=base_url('User/login');?>",
+        url:"<?php echo base_url('User/login');?>",
         type:"POST",
         data:$(this).serialize(),
         dataType:"JSON",
         success:function(data){
             console.log(data);
             if(data.status==200){
-              window.location.href = "<?=base_url('Home');?>";
+              window.location.href = "<?php echo base_url('Home');?>";
             }else{
               $("#showErrorMessage").show();
             }

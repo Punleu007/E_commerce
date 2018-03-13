@@ -14,6 +14,16 @@ class Product extends MY_Controller {
 		$data['category_menu'] = $category;
 		$this->view("home/index",$data,$title);
 	}
+	public function post(){
+		$this->load->model('Product_model');
+		$this->load->model('Product_category_model');
+		$title['page_title']= "Cambodian farmer";
+		$title['menu'] = "post";
+		//$data['products']=$this->Product_model->where('ProductCategoryID',$category)->get_all();
+		$data["product_categorys"] = $this->Product_category_model->get_all();
+		//$data['category_menu'] = $category;
+		$this->view("product/post",$data,$title);
+	}
   public function getAll(){
     $this->load->model('Product_model');
     $data = $this->Product_model->get_all();
