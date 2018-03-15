@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-                        <input type="number" name="price" class="form-control" id="price"
+                        <input type="text" name="price" class="form-control" id="price"
                                placeholder="Product Price" required autofocus>
                     </div>
                 </div>
