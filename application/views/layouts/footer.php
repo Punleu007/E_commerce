@@ -6,7 +6,6 @@
   </div>
   <!-- /.container -->
 </footer>
-
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript">
     // $(document).ready(function(){

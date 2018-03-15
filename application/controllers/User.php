@@ -26,25 +26,41 @@ class User extends MY_Controller {
 	}
   public function insert(){
       $this->load->model('User_model');
+			$this->load->model('Product_category_model');
       //$this->input->post('something');
-      $this->User_model->insert(array(
-        'UserEmail' => '',
-        'UserPassword' => '',
-        'UserFirstName' => '',
-        'UserLastName' => '',
+      $user = $this->User_model->insert(array(
+        'UserEmail' => $this->input->post("email"),
+        'UserPassword' => $this->input->post("password"),
+        'UserFirstName' => $this->input->post("FirstName"),
+        'UserLastName' => $this->input->post("LastName"),
         'UserCity' => '',
-        'UserState' => '',
+        'UserState' => $this->input->post("State"),
         'UserZip' => '',
         'UserEmailVerified' => '',
-        'UserRegistrationDate' => '',
+        'UserRegistrationDate' => date("Y-m-d H:i:s"),
         'UserVerificationCode' => '',
         'UserIP' => '',
-        'UserPhone' => '',
+        'UserPhone' => $this->input->post("Phone"),
         'UserFax' => '',
-        'UserCountry' => '',
-        'UserAddress' => '',
+        'UserCountry' => $this->input->post("country"),
+        'UserAddress' => $this->input->post("Address"),
         'UserAddress2' => ''
       ));
+			$title['page_title']= "Cambodian farmer";
+			$title['menu'] = "signup";
+			//$data['products']=$this->Product_model->where('ProductCategoryID',$category)->get_all();
+			$data["product_categorys"] = $this->Product_category_model->get_all();
+			$data["action"] = 1;
+			if(!empty($user)){
+          $data["message"] = "successed...!";
+					$data["alert"] = "alert-danger";
+      }
+      else
+      {
+          $data["message"] = "failed...!";
+					$data["alert"] = "alert-success";
+      }
+			$this->view("logins/registration",$data,$title);
   }
   public function login(){
       $this->load->model('User_model');

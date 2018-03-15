@@ -4,7 +4,7 @@
           <h3 class="mb-0" style="color:rgb(10, 43, 78)">Register</h3>
       </div>
       <div class="card-body">
-    <form class="form-horizontal" role="form" method="POST" action="/register" style="background:white;">
+    <form class="form-horizontal" role="form" method="POST" action="<?php echo base_url('User/insert');?>" style="background:white;">
         <div class="row">
             <div class="col-md-3 field-label-responsive">
                 <label for="name">First Name</label>
@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-                        <input type="text" name="name" class="form-control" id="name"
+                        <input type="text" name="FirstName" class="form-control" id="FirstName"
                                placeholder="John Doe" required autofocus>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-                        <input type="text" name="name" class="form-control" id="name"
+                        <input type="text" name="LastName" class="form-control" id="LastName"
                                placeholder="John Doe" required autofocus>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
-                        <input type="text" name="name" class="form-control" id="name"
+                        <input type="text" name="State" class="form-control" id="State"
                                placeholder="John Doe" required autofocus>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-phone"></i></div>
-                        <input type="text" name="name" class="form-control" id="name"
+                        <input type="text" name="Phone" class="form-control" id="Phone"
                                placeholder="John Doe" required autofocus>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-map-marker"></i></div>
-                        <input type="text" name="name" class="form-control" id="name"
+                        <input type="text" name="country" class="form-control" id="country"
                                placeholder="John Doe" required autofocus>
                     </div>
                 </div>
@@ -139,8 +139,8 @@
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-address-card"></i></div>
-                        <input type="text" name="name" class="form-control" id="name"
-                               placeholder="John Doe" required autofocus>
+                        <input type="text" name="Address" class="form-control" id="Address"
+                               placeholder="Address" required autofocus>
                     </div>
                 </div>
             </div>
@@ -168,7 +168,7 @@
             <div class="col-md-3">
                 <div class="form-control-feedback">
                         <span class="text-danger align-middle">
-                            <i class="fa fa-close"> Example Error Message</i>
+                            <!-- <i class="fa fa-close"> Example Error Message</i> -->
                         </span>
                 </div>
             </div>
@@ -189,6 +189,11 @@
                 </div>
             </div>
         </div>
+        <?php if(isset($action)){ ?>
+          <div class="alert <?php echo ($alert); ?> text-center" role="alert">
+          <?php if(isset($message)) echo ($message); else echo "";  ?>
+          </div>
+        <?php } ?>
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">

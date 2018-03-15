@@ -52,9 +52,11 @@
     <!--/row-->
 </div>
 <!--/container-->
+<script src="<?php echo base_url('assets/js/jquery/jquery.min.js'); ?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $("#showErrorMessage").hide();
+    //console.log("asdfasg");
 });
 $("#formLogin").submit(function(event) {
     event.preventDefault();
