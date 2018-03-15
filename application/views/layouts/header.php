@@ -38,26 +38,23 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item <?php if($menu=="about")echo "active"; ?>">
-              <a class="nav-link" href="<?php echo base_url('Home/about'); ?>">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item <?php if($menu=="contact")echo "active"; ?>">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item <?php if($menu=="post")echo "active"; ?>">
-              <a class="nav-link" href="<?php echo base_url('Product/post'); ?>">Product</a>
-            </li>
+            <?php if(isset($_SESSION['userID'])){  ?>
+              <li class="nav-item <?php if($menu=="post")echo "active"; ?>">
+                <a class="nav-link" href="<?php echo base_url('Product/post'); ?>">Product</a>
+              </li>
+            <?php } ?>
             <li class="nav-item <?php if($menu=="signup")echo "active"; ?>">
               <a class="nav-link" href="<?php echo base_url('User/register'); ?>">Sign up</a>
             </li>
             <li class="nav-item <?php if($menu=="signin")echo "active"; ?>">
               <a class="nav-link" href="<?php echo base_url('User'); ?>">Sign in</a>
             </li>
+            <?php if(isset($_SESSION['userID'])){  ?>
+            <li class="nav-item <?php if($menu=="signout")echo "active"; ?>">
+              <a class="nav-link" href="<?php echo base_url('User/logout'); ?>">Sign out</a>
+            </li>
+            <?php } ?>
           </ul>
         </div>
       </div>
     </nav>
-    

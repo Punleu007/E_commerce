@@ -53,12 +53,12 @@ class User extends MY_Controller {
 			$data["action"] = 1;
 			if(!empty($user)){
           $data["message"] = "successed...!";
-					$data["alert"] = "alert-danger";
+					$data["alert"] = "alert-success";
       }
       else
       {
           $data["message"] = "failed...!";
-					$data["alert"] = "alert-success";
+					$data["alert"] = "alert-danger";
       }
 			$this->view("logins/registration",$data,$title);
   }
@@ -75,6 +75,7 @@ class User extends MY_Controller {
           $data["status"] = 200;
           $data["message"] = "successed";
 					$this->session->set_userdata('userName', $user->UserFirstName);
+					$this->session->set_userdata("userID",$user->UserID);
           echo json_encode($data);
       }
       else
@@ -85,6 +86,17 @@ class User extends MY_Controller {
           echo json_encode($data);
       }
   }
+	public function logout(){
+			$this->session->sess_destroy();
+			$this->load->model('Product_category_model');
+			$title['page_title']= "Cambodian farmer";
+			$title['menu'] = "home";
+			//$data['products']=$this->Product_model->where('ProductCategoryID',$category)->get_all();
+			$data["product_categorys"] = $this->Product_category_model->get_all();
+			//$data['category_menu'] = $category;
+			//$this->view("home/index",$data,$title);
+			redirect('/Home/index');
+	}
 
 }
 ?>

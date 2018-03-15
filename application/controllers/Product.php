@@ -37,52 +37,63 @@ class Product extends MY_Controller {
 	public function insertData(){
 		$this->load->model('Product_model');
 
-		$proSKU = $this->input->post("proSKU");
-    $proName = $this->input->post("proName");
-    $proPrice = $this->input->post("proPrice");
-    $proWeight = $this->input->post("proWeight");
-    $proCatDesc = $this->input->post("proCatDesc");
-    $proShortDesc = $this->input->post("proShortDesc");
-    $proLongDesc = $this->input->post("proLongDesc");
-    $proThumb = $this->input->post("proThumb");
-    $proImg = $this->input->post("proImg");
-    $proCategoryID = $this->input->post("proCategoryID");
+		$proSKU = $this->input->post("codeSKU");
+    $proName = $this->input->post("name");
+    $proPrice = $this->input->post("price");
+    $proWeight = " ";//$this->input->post("proWeight");
+    $proCatDesc = " ";//$this->input->post("proCatDesc");
+    $proShortDesc = $this->input->post("shortDesc");
+    $proLongDesc = " ";//$this->input->post("proLongDesc");
+    $proThumb = $this->input->post("thumb");
+    $proImg = " ";//$this->input->post("proImg");
+    $proCategoryID = $this->input->post("Category");
     $proStock = $this->input->post("proStock");
-    $proLive = $this->input->post("proLive");
+    $proLive = $this->input->post("live");
     $proUnlimited = $this->input->post("proUnlimited");
     $proLocation = $this->input->post("proLocation");
-    $userID = $this->input->post("UserID");
+    $userID = $this->session->userdata('userID');
 
-		$product = $this->Product_model->insert(array(
-			'ProductSKU' => $proSKU,
-			'ProductName' => $proName,
-			'ProductPrice' => $proPrice,
-			'ProductWeight' => $proWeight,
-			'ProductCartDesc' => $proCatDesc,
-			'ProductShortDesc' => $proShortDesc,
-			'ProductLongDesc' => $proLongDesc,
-			'ProductThumb' => $proThumb,
-			'ProductImage' => $proImg,
-			'ProductCategoryID' => $proCategoryID,
-			'ProductUpdateDate' => date("Y-m-d H:i:s"),
-			'ProductStock' => $proStock,
-			'ProductLive' => $proLive,
-			'ProductUnlimited' => $proUnlimited,
-			'ProductLocation' => $proLocation,
-			'UserID' => $userID
-		));
+		if(isset($userID)){
+				$data["action"] = 1;
+				$title['page_title']= "Cambodian farmer";
+				$title['menu'] = "post";
+				$data["message"] = "not have login...!";
+				$data["alert"] = "alert-danger";
+				$this->view("product/post",$data,$title);
+		}else{
 
-		if(!empty($product)){
-				$data["product"] = $product;
-				$data["status"] = 200;
-				$data["message"] = "successed";
-				echo json_encode($data);
-		}
-		else
-		{
-				$data["status"] = 500;
-				$data["message"] = "failed";
-				echo json_encode($data);
+				$product = $this->Product_model->insert(array(
+					'ProductSKU' => $proSKU,
+					'ProductName' => $proName,
+					'ProductPrice' => $proPrice,
+					'ProductWeight' => $proWeight,
+					'ProductCartDesc' => $proCatDesc,
+					'ProductShortDesc' => $proShortDesc,
+					'ProductLongDesc' => $proLongDesc,
+					'ProductThumb' => $proThumb,
+					'ProductImage' => $proImg,
+					'ProductCategoryID' => $proCategoryID,
+					'ProductUpdateDate' => date("Y-m-d H:i:s"),
+					'ProductStock' => $proStock,
+					'ProductLive' => $proLive,
+					'ProductUnlimited' => $proUnlimited,
+					'ProductLocation' => $proLocation,
+					'UserID' => $userID
+				));
+
+				$data["action"] = 1;
+				$title['page_title']= "Cambodian farmer";
+				$title['menu'] = "post";
+				if(!empty($product)){
+						$data["message"] = "successed...!";
+						$data["alert"] = "alert-success";
+				}
+				else
+				{
+						$data["message"] = "failed...!";
+						$data["alert"] = "alert-danger";
+				}
+				$this->view("product/post",$data,$title);
 		}
 
 	}
